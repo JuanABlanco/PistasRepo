@@ -27,7 +27,38 @@ public class SCANL extends Metodos {
     
     @Override
     public void run(){
-        
+        //Se toma el tiempo en que se inicio la simulacion 
+        double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
+        while(true){
+            //Se buscan los extremos
+            extremar();
+            //Se verifica si existen peticiones pendientes 
+            if (this.PNS.get(0) != null){
+                //Se verifica a cual lado se movera el brazo 
+                if(this.direccion){
+                    //Se recorre el disco de forma creciente 
+                    recorridoP();
+                } else {
+                    //Se recorre el disco de forma descendente 
+                    recorridoN();
+                }
+                //Se toma el tiempo en que termina una iteracion 
+                double TFI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
+                //Se actualiza el tiempo empleado en la simulacion
+                this.TTE = this.TTE + (TFI-TI);
+            } else {
+                synchronized(this){
+                    
+                    if (pausa)
+                        try {
+                            this.wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(FIFO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                        
+                }
+            }
+        }
     }
     
     //Metodo encargado de buscar las peticiones extremas para que el brazo no tenga que leer toda la memoria 
