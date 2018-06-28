@@ -24,7 +24,7 @@ public class FIFO extends Metodos {
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         while(true){
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.get(1) != null){
+            if (this.PNS.get(0) != null){
                 //Se verifica a cual lado se movera el brazo 
                 if(this.PNS.get(1).getPista()>=this.PI){
                     //Se recorre el disco de forma creciente 
@@ -54,7 +54,7 @@ public class FIFO extends Metodos {
     
     public void recorridoP (){
         for (int i=this.PI; i<4000; i++){
-            if (this.PNS.get(1).getPista() == i){
+            if (this.PNS.get(0).getPista() == i){
                 try {
                     //Se calcula el tiempo que le tomo encontrarla 
                     this.TRP = 1000/(i-this.PI);
@@ -83,7 +83,7 @@ public class FIFO extends Metodos {
     
     public void recorridoN (){
         for (int i=this.PI; i>-1; i--){
-            if (this.PNS.get(1).getPista() == i){
+            if (this.PNS.get(0).getPista() == i){
                 try {
                     //Se calcula el tiempo que le tomo encontrarla 
                     this.TRP = 1000/(this.PI-i);
