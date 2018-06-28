@@ -87,9 +87,10 @@ public class CSCAN extends Metodos{
                 }
             }
         }
+        this.direccion = !(this.direccion);
     } 
     
-       public void recorridoN (){
+    public void recorridoN (){
         for (int i=this.PI; i>-1; i--){
             for (int j=0; j<this.PNS.size(); j++){
                 if (this.PNS.get(j).getPista() == i){
@@ -118,6 +119,7 @@ public class CSCAN extends Metodos{
                 }
             }
         }
+        this.direccion = !(this.direccion);
     }
     
     

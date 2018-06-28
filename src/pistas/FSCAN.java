@@ -27,12 +27,14 @@ public class FSCAN extends Metodos{
     @Override
     public void run (){
         //Verificamos que las listas pendiente y activa no esten vacias 
-        if(!(this.PEP.isEmpty()) && !(this.PNS.isEmpty())){
+        if(!(this.PEP.isEmpty())){
             //Se verifica a que direccion se comienza a recorrer el disco 
             if(this.direccion){
                 //Recorrido positivo
+                recorridoP();
             }else{
-               //Recorrido negativo 
+                //Recorrido negativo 
+                recorridoN();
             }
         } else if(this.PEP.isEmpty() && !(this.PNS.isEmpty())){
             descarga();
@@ -47,6 +49,69 @@ public class FSCAN extends Metodos{
                 }
             }
         }
+    }
+    
+    public void recorridoP (){
+        for (int i=this.PI; i<4000; i++){
+            for (int j=0; j<this.PEP.size(); j++){
+                if (this.PEP.get(j).getPista() == i){
+                    try {
+                        //Se calcula el tiempo que le tomo encontrarla 
+                        this.TRP = 1000/(i-this.PI);
+                        //Transferencia
+                        sleep((new Double(this.PEP.get(j).getTT()).longValue())*1000);
+                        //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 
+                        this.TTT = this.TTT + this.PEP.get(j).getTT();
+                        //Cambio de lista
+                        this.PS.add(this.PEP.remove(j)); 
+                        //Aumentar el contador de peticiones 
+                        this.NPS ++;
+                        //Aumentar el numero de pistas recorridas
+                        this.NP = this.NP + (i-this.PI);
+                        //Calcular el promedio de pistas recorridas 
+                        this.PPR = this.NP/this.NPS;
+                        //La pista actual se convierte en la pista inicial
+                        this.PI = i;  
+                        break;
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(FIFO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+        this.direccion = !(this.direccion);
+    }
+    
+    public void recorridoN (){
+        for (int i=this.PI; i>-1; i--){
+            for (int j=0; j<this.PEP.size(); j++){
+                if (this.PEP.get(j).getPista() == i){
+                    try {
+                        //Se calcula el tiempo que le tomo encontrarla 
+                        this.TRP = 1000/(this.PI-i);
+                        //Transferencia
+                        sleep((new Double(this.PEP.get(j).getTT()).longValue())*1000);
+                        //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 
+                        this.TTT = this.TTT + this.PEP.get(j).getTT();
+                        //Cambio de lista
+                        this.PS.add(this.PEP.remove(j)); 
+                        //Aumentar el contador de peticiones 
+                        this.NPS ++;
+                        //Aumentar el numero de pistas recorridas
+                        this.NP = this.NP + (this.PI-i);
+                        //Calcular el promedio de pistas recorridas 
+                        this.PPR = this.NP/this.NPS;
+                        //La pista actual se convierte en la pista inicial
+                        this.PI = i;
+                        //Se verifica la siguiente peticion
+                        break;   
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(FIFO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+        this.direccion = !(this.direccion);
     }
     
     //Llenamos la lista a ser recorrida 

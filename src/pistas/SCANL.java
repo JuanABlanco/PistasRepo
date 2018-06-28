@@ -106,6 +106,7 @@ public class SCANL extends Metodos {
                 }
             }
         }
+        this.direccion = !(this.direccion);
     } 
     
        public void recorridoN (){
@@ -137,5 +138,7 @@ public class SCANL extends Metodos {
                 }
             }
         }
+        this.direccion = !(this.direccion);
     }
+       
 }
