@@ -12,9 +12,11 @@ import java.util.List;
  * @author Juan Arturo Blanco
  */
 public class SCANL extends Metodos {
+    private boolean direccion; //Variable que indica la direccion del brazo 
     
-    public SCANL(List PNS, int PI) {
+    public SCANL(List PNS, int PI, boolean direccion) {
         super(PNS, PI);
+        this.direccion = direccion;
     }
     
 }
