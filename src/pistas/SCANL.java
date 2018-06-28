@@ -34,7 +34,15 @@ public class SCANL extends Metodos {
         this.extremos[1] = -1;
         //Nos aseguramos de obtener un limite de iteraciones sin que la introduccion de nuevos requerimientos puedan causar un fallo 
         int limite = this.PNS.size();
-        
+        //Buscamos los limites
+        for(int i=0; i<limite; i++){
+            if(this.PNS.get(i).getPista() > this.extremos[1]){
+                this.extremos[1] = this.PNS.get(i).getPista();
+            }
+            if(this.PNS.get(i).getPista() < this.extremos[0]){
+                this.extremos[0] = this.PNS.get(i).getPista();
+            }
+        }
         
         
     }

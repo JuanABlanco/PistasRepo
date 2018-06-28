@@ -25,7 +25,7 @@ public class SSTF extends Metodos{
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000; 
         while(true){
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.get(1) != null){
+            if (this.PNS.get(0) != null){
                 //Se verifica a cual lado se movera el brazo 
                 // a traves de los metodos 
                 //Se toma el tiempo en que termina una iteracion 
@@ -52,7 +52,7 @@ public class SSTF extends Metodos{
         List<Peticion> aux = this.PNS;
         int distancia = 0;
         for (int i=PI; i<4000; i++){
-            if (aux.get(1).getPista() == i){
+            if (aux.get(0).getPista() == i){
                 distancia++;
                 break;
             }
@@ -64,7 +64,7 @@ public class SSTF extends Metodos{
         List<Peticion> aux = this.PNS;
         int distancia = 0;
         for (int i=PI; i>-1; i--){
-            if (aux.get(1).getPista() == i){
+            if (aux.get(0).getPista() == i){
                 distancia++;
                 break;
             }
