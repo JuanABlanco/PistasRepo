@@ -24,7 +24,7 @@ public class FIFO extends Metodos {
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         while(true){
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.get(1) != null){
+            if (this.PNS.get(0) != null){
                 //Se verifica a cual lado se movera el brazo 
                 if(this.PNS.get(1).getPista()>=this.PI){
                     //Se recorre el disco de forma creciente 
@@ -53,15 +53,11 @@ public class FIFO extends Metodos {
     }
     
     public void recorridoP (){
-        //Se toma el tiempo en que se inicia a recorrer las pistas
-        double TIR = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         for (int i=this.PI; i<4000; i++){
-            if (this.PNS.get(1).getPista() == i){
+            if (this.PNS.get(0).getPista() == i){
                 try {
-                    // Se toma el tiempo en el que consigue la pista adecuada
-                    double TCP = (new Double(System.currentTimeMillis())).doubleValue()/1000;
                     //Se calcula el tiempo que le tomo encontrarla 
-                    this.TRP = TCP - TIR;
+                    this.TRP = 1000/(i-this.PI);
                     //Transferencia
                     sleep((new Double(this.PNS.get(1).getTT()).longValue())*1000);
                     //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 
@@ -86,15 +82,11 @@ public class FIFO extends Metodos {
     }
     
     public void recorridoN (){
-        //Se toma el tiempo en que se inicia a recorrer las pistas
-        double TIR = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         for (int i=this.PI; i>-1; i--){
-            if (this.PNS.get(1).getPista() == i){
+            if (this.PNS.get(0).getPista() == i){
                 try {
-                    // Se toma el tiempo en el que consigue la pista adecuada
-                    double TCP = (new Double(System.currentTimeMillis())).doubleValue()/1000;
                     //Se calcula el tiempo que le tomo encontrarla 
-                    this.TRP = TCP - TIR;
+                    this.TRP = 1000/(this.PI-i);
                     //Transferencia
                     sleep((new Double(this.PNS.get(1).getTT()).longValue())*1000);
                     //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 

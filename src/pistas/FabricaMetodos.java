@@ -15,6 +15,7 @@ import java.util.List;
 public class FabricaMetodos {
     private List<Peticion> l = new ArrayList<Peticion>();
     private int PI;
+    private boolean direccion;
 
     public FabricaMetodos() {
         
@@ -26,7 +27,7 @@ public class FabricaMetodos {
         } else if (s.equalsIgnoreCase("SSTF")){
             return new SSTF(l , PI);
         } else if (s.equalsIgnoreCase("SCANL")){
-            return new SCANL(l, PI);
+            return new SCANL(l, PI, direccion);
         } else if (s.equalsIgnoreCase("CSCAN")){
             return new CSCAN(l, PI);
         } else {
@@ -41,5 +42,22 @@ public class FabricaMetodos {
     public void setPI(int PI) {
         this.PI = PI;
     }
+
+    public List<Peticion> getL() {
+        return l;
+    }
+
+    public void setL(List<Peticion> l) {
+        this.l = l;
+    }
+
+    public boolean isDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(boolean direccion) {
+        this.direccion = direccion;
+    }
+    
     
 }
