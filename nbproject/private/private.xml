@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/CSCAN.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/FSCAN.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/SSTF.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/SCANL.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/Peticion.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/FabricaMetodos.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/Metodos.java</file>
-            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/Pistas/src/pistas/FIFO.java</file>
+            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/PistasRepo/src/pistas/SCANL.java</file>
+            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/PistasRepo/src/pistas/FabricaMetodos.java</file>
+            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/PistasRepo/src/pistas/SSTF.java</file>
+            <file>file:/C:/Users/Juan%20Arturo%20Blanco/Documents/NetBeansProjects/PistasRepo/src/pistas/FIFO.java</file>
         </group>
     </open-files>
 </project-private>
