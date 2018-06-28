@@ -39,7 +39,7 @@ public class FIFO extends Metodos {
                 this.TTE = this.TTE + (TFI-TI);
             } else {
                 synchronized(this){
-                    
+                    pausa();
                     if (pausa)
                         try {
                             this.wait();

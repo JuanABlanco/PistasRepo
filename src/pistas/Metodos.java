@@ -36,7 +36,7 @@ public abstract class Metodos extends Thread{
         this.NPps ++;
         this.NPRe ++;
         if (this.pausa){
-            this.pausa = false;
+            reanudar();
         }
     }
     

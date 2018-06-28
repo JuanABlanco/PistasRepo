@@ -31,7 +31,7 @@ public class FabricaMetodos {
         } else if (s.equalsIgnoreCase("CSCAN")){
             return new CSCAN(l, PI, direccion);
         } else {
-            return new FSCAN(l, PI);
+            return new FSCAN(l, PI, direccion);
         }
     }
 
