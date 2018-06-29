@@ -44,14 +44,14 @@ public class SSTF extends Metodos{
                 //Se actualiza el tiempo empleado en la simulacion
                 this.TTE = this.TTE + (TFI-TI);
                 // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFIFO(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFIFO(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFIFO(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFIFO(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFIFO(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
-                interfaz.setTTotalFIFO(Double.toString(this.TTE));
+                interfaz.setPRealizadasSSTF(Integer.toString(this.NPRe));
+                interfaz.setPRecorridasSSTF(Integer.toString(this.NP));
+                interfaz.setPSatisfacerSSTF(Integer.toString(this.NPps));
+                interfaz.setPSatisfechasSSTF(Integer.toString(this.NPS));
+                interfaz.setPromedioRSSSTF(Float.toString(this.PPR)); //promedio de recorridas, e
+                interfaz.setTiempoRecorriendoSSTF(Double.toString(this.TRP));
+                interfaz.setTTransferenciaSSTF(Double.toString(this.TTT));
+                interfaz.setTTotalSSTF(Double.toString(this.TTE));
             } else {
                 synchronized(this){
                     pausa();

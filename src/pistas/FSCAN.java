@@ -35,26 +35,26 @@ public class FSCAN extends Metodos{
                 //Recorrido positivo
                 recorridoP();
                 // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFIFO(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFIFO(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFIFO(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFIFO(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFIFO(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
-                interfaz.setTTotalFIFO(Double.toString(this.TTE));
+                interfaz.setPRealizadasFSCAN(Integer.toString(this.NPRe));
+                interfaz.setPRecorridasFSCAN(Integer.toString(this.NP));
+                interfaz.setPSatisfacerFSCAN(Integer.toString(this.NPps));
+                interfaz.setPSatisfechasFSCAN(Integer.toString(this.NPS));
+                interfaz.setPromedioRSFSCAN(Float.toString(this.PPR)); //promedio de recorridas, e
+                interfaz.setTiempoRecorriendoFSCAN(Double.toString(this.TRP));
+                interfaz.setTTransferenciaFSCAN(Double.toString(this.TTT));
+                interfaz.setTTotalFSCAN(Double.toString(this.TTE));
             }else{
                 //Recorrido negativo 
                 recorridoN();
                 // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFIFO(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFIFO(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFIFO(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFIFO(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFIFO(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
-                interfaz.setTTotalFIFO(Double.toString(this.TTE));
+                interfaz.setPRealizadasFSCAN(Integer.toString(this.NPRe));
+                interfaz.setPRecorridasFSCAN(Integer.toString(this.NP));
+                interfaz.setPSatisfacerFSCAN(Integer.toString(this.NPps));
+                interfaz.setPSatisfechasFSCAN(Integer.toString(this.NPS));
+                interfaz.setPromedioRSFSCAN(Float.toString(this.PPR)); //promedio de recorridas, e
+                interfaz.setTiempoRecorriendoFSCAN(Double.toString(this.TRP));
+                interfaz.setTTransferenciaFSCAN(Double.toString(this.TTT));
+                interfaz.setTTotalFSCAN(Double.toString(this.TTE));
             }
         } else if(this.PEP.isEmpty() && !(this.PNS.isEmpty())){
             descarga();

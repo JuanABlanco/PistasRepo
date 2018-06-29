@@ -49,14 +49,14 @@ public class SCANL extends Metodos {
                 //Se actualiza el tiempo empleado en la simulacion
                 this.TTE = this.TTE + (TFI-TI);
                 // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFIFO(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFIFO(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFIFO(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFIFO(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFIFO(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
-                interfaz.setTTotalFIFO(Double.toString(this.TTE));
+                interfaz.setPRealizadasSCANL(Integer.toString(this.NPRe));
+                interfaz.setPRecorridasSCANL(Integer.toString(this.NP));
+                interfaz.setPSatisfacerSCANL(Integer.toString(this.NPps));
+                interfaz.setPSatisfechasSCANL(Integer.toString(this.NPS));
+                interfaz.setPromedioRSSCANL(Float.toString(this.PPR)); //promedio de recorridas, e
+                interfaz.setTiempoRecorriendoSCANL(Double.toString(this.TRP));
+                interfaz.setTTransferenciaSCANL(Double.toString(this.TTT));
+                interfaz.setTTotalSCANL(Double.toString(this.TTE));
             } else {
                 synchronized(this){
                     pausa();
