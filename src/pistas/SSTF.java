@@ -5,6 +5,7 @@
  */
 package pistas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,6 +53,8 @@ public class SSTF extends Metodos{
                 interfaz.setTiempoRecorriendoSSTF(Double.toString(this.TRP));
                 interfaz.setTTransferenciaSSTF(Double.toString(this.TTT));
                 interfaz.setTTotalSSTF(Double.toString(this.TTE));
+                listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerSSTF());
+                listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasSSTF());
             } else {
                 synchronized(this){
                     pausa();

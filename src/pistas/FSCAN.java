@@ -30,34 +30,34 @@ public class FSCAN extends Metodos{
     public void run (){
         //Verificamos que las listas pendiente y activa no esten vacias 
         if(!(this.PEP.isEmpty())){
+            listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFSCAN());
+            listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasFSCAN());
+            listar(((ArrayList<Peticion>)this.PEP), interfaz.getColaSatisfaciendoFSCAN());
             //Se verifica a que direccion se comienza a recorrer el disco 
             if(this.direccion){
                 //Recorrido positivo
                 recorridoP();
-                // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFSCAN(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFSCAN(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFSCAN(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFSCAN(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFSCAN(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFSCAN(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFSCAN(Double.toString(this.TTT));
-                interfaz.setTTotalFSCAN(Double.toString(this.TTE));
             }else{
                 //Recorrido negativo 
                 recorridoN();
-                // se actualizan los datos en la interfaz
-                interfaz.setPRealizadasFSCAN(Integer.toString(this.NPRe));
-                interfaz.setPRecorridasFSCAN(Integer.toString(this.NP));
-                interfaz.setPSatisfacerFSCAN(Integer.toString(this.NPps));
-                interfaz.setPSatisfechasFSCAN(Integer.toString(this.NPS));
-                interfaz.setPromedioRSFSCAN(Float.toString(this.PPR)); //promedio de recorridas, e
-                interfaz.setTiempoRecorriendoFSCAN(Double.toString(this.TRP));
-                interfaz.setTTransferenciaFSCAN(Double.toString(this.TTT));
-                interfaz.setTTotalFSCAN(Double.toString(this.TTE));
             }
+            // se actualizan los datos en la interfaz
+            interfaz.setPRealizadasFSCAN(Integer.toString(this.NPRe));
+            interfaz.setPRecorridasFSCAN(Integer.toString(this.NP));
+            interfaz.setPSatisfacerFSCAN(Integer.toString(this.NPps));
+            interfaz.setPSatisfechasFSCAN(Integer.toString(this.NPS));
+            interfaz.setPromedioRSFSCAN(Float.toString(this.PPR)); //promedio de recorridas, e
+            interfaz.setTiempoRecorriendoFSCAN(Double.toString(this.TRP));
+            interfaz.setTTransferenciaFSCAN(Double.toString(this.TTT));
+            interfaz.setTTotalFSCAN(Double.toString(this.TTE));
+            listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFSCAN());
+            listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasFSCAN());
+            listar(((ArrayList<Peticion>)this.PEP), interfaz.getColaSatisfaciendoFSCAN());
         } else if(this.PEP.isEmpty() && !(this.PNS.isEmpty())){
             descarga();
+            listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFSCAN());
+            listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasFSCAN());
+            listar(((ArrayList<Peticion>)this.PEP), interfaz.getColaSatisfaciendoFSCAN());
         } else {
             synchronized(this){
                 pausa();

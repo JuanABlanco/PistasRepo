@@ -8,6 +8,7 @@ package pistas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
@@ -171,12 +172,9 @@ public class PistasInterfaz extends javax.swing.JFrame {
         ListaPorSatisfacerFSCAN = new javax.swing.JList();
         jScrollPane10 = new javax.swing.JScrollPane();
         ListaSatisfechasFSCAN = new javax.swing.JList();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        ColaAFSCAN = new javax.swing.JList();
-        jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        ColaBFSCAN = new javax.swing.JList();
+        ColaSatisfaciendoFSCAN = new javax.swing.JList();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         IngresarPeticion = new javax.swing.JButton();
@@ -314,7 +312,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                             .add(FIFOLayout.createSequentialGroup()
                                 .add(jLabel4)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PSatisfacerFIFO, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .add(PSatisfacerFIFO, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                             .add(FIFOLayout.createSequentialGroup()
                                 .add(jLabel3)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -328,7 +326,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(FIFOLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabel7))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 92, Short.MAX_VALUE)
                                 .add(FIFOLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel8)
                                     .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
@@ -487,7 +485,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                             .add(SSTFLayout.createSequentialGroup()
                                 .add(jLabel15)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PSatisfacerSSTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .add(PSatisfacerSSTF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                             .add(SSTFLayout.createSequentialGroup()
                                 .add(jLabel14)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -501,7 +499,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(SSTFLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabel22))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 92, Short.MAX_VALUE)
                                 .add(SSTFLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel24)
                                     .add(jScrollPane4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
@@ -660,7 +658,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                             .add(SCANLLayout.createSequentialGroup()
                                 .add(jLabel26)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PSatisfacerSCANL, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .add(PSatisfacerSCANL, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                             .add(SCANLLayout.createSequentialGroup()
                                 .add(jLabel25)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -674,7 +672,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(SCANLLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabel33))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 92, Short.MAX_VALUE)
                                 .add(SCANLLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel35)
                                     .add(jScrollPane6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
@@ -833,7 +831,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                             .add(CSCANLayout.createSequentialGroup()
                                 .add(jLabel37)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PSatisfacerCSCAN, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .add(PSatisfacerCSCAN, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                             .add(CSCANLayout.createSequentialGroup()
                                 .add(jLabel36)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -847,7 +845,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(CSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jScrollPane7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .add(jLabel44))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 92, Short.MAX_VALUE)
                                 .add(CSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel46)
                                     .add(jScrollPane8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
@@ -994,13 +992,9 @@ public class PistasInterfaz extends javax.swing.JFrame {
 
         jScrollPane10.setViewportView(ListaSatisfechasFSCAN);
 
-        jScrollPane11.setViewportView(ColaAFSCAN);
+        jLabel62.setText("Satisfaciendo");
 
-        jLabel61.setText("Cola A");
-
-        jLabel62.setText("Cola B");
-
-        jScrollPane12.setViewportView(ColaBFSCAN);
+        jScrollPane12.setViewportView(ColaSatisfaciendoFSCAN);
 
         org.jdesktop.layout.GroupLayout FSCANLayout = new org.jdesktop.layout.GroupLayout(FSCAN);
         FSCAN.setLayout(FSCANLayout);
@@ -1009,6 +1003,30 @@ public class PistasInterfaz extends javax.swing.JFrame {
             .add(FSCANLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(FSCANLayout.createSequentialGroup()
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(FSCANLayout.createSequentialGroup()
+                                .add(jLabel48)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(PSatisfacerFSCAN))
+                            .add(FSCANLayout.createSequentialGroup()
+                                .add(jLabel47)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(PRealizadasFSCAN)))
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(FSCANLayout.createSequentialGroup()
+                                .add(28, 28, 28)
+                                .add(jLabel56))
+                            .add(FSCANLayout.createSequentialGroup()
+                                .add(53, 53, 53)
+                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jScrollPane9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(jLabel55))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel57)
+                                    .add(jScrollPane10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 129, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(73, 73, 73))))
                     .add(FSCANLayout.createSequentialGroup()
                         .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(org.jdesktop.layout.GroupLayout.LEADING, TTransferenciaFSCAN)
@@ -1031,100 +1049,59 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(jLabel54)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(TTotalFSCAN)))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jScrollPane11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 81, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(FSCANLayout.createSequentialGroup()
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(jLabel48)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PSatisfacerFSCAN, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(jLabel47)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(PRealizadasFSCAN)))
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(28, 28, 28)
-                                .add(jLabel56))
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(53, 53, 53)
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jScrollPane9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel55))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 48, Short.MAX_VALUE)
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jLabel57)
-                                    .add(jScrollPane10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 149, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(20, 20, 20)
-                                .add(jLabel61))
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(18, 18, 18)
-                                .add(jLabel62))
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(25, 25, 25)
-                                .add(jScrollPane12, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 83, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .add(22, 22, 22))
+                        .add(461, 461, 461)))
+                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jScrollPane12, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 123, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel62))
+                .add(47, 47, 47))
         );
         FSCANLayout.setVerticalGroup(
             FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, FSCANLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(FSCANLayout.createSequentialGroup()
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel47)
-                            .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(PRealizadasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(jLabel56)))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, FSCANLayout.createSequentialGroup()
-                        .add(jLabel61)
-                        .add(3, 3, 3)))
+                    .add(jLabel47)
+                    .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(PRealizadasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabel56)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabel55)
+                    .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(jLabel57)
+                        .add(jLabel62))
+                    .add(jLabel48)
+                    .add(PSatisfacerFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jScrollPane12)
                     .add(FSCANLayout.createSequentialGroup()
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel55)
-                            .add(jLabel57)
-                            .add(jLabel48)
-                            .add(PSatisfacerFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel49)
+                            .add(PSatisfechasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(FSCANLayout.createSequentialGroup()
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel49)
-                                    .add(PSatisfechasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel50)
-                                    .add(PRecorridasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel51)
-                                .add(4, 4, 4)
-                                .add(PromedioRSFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel52)
-                                    .add(TiempoRecorriendoFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jLabel53)
-                                .add(1, 1, 1)
-                                .add(TTransferenciaFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(jLabel54)
-                                    .add(TTotalFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .add(0, 0, Short.MAX_VALUE))
-                            .add(jScrollPane9)
-                            .add(jScrollPane10)))
-                    .add(FSCANLayout.createSequentialGroup()
-                        .add(jScrollPane11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jLabel62)
-                        .add(3, 3, 3)
-                        .add(jScrollPane12, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel50)
+                            .add(PRecorridasFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel51)
+                        .add(4, 4, 4)
+                        .add(PromedioRSFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel52)
+                            .add(TiempoRecorriendoFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabel53)
+                        .add(1, 1, 1)
+                        .add(TTransferenciaFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel54)
+                            .add(TTotalFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(0, 25, Short.MAX_VALUE))
+                    .add(jScrollPane9)
+                    .add(jScrollPane10))
                 .addContainerGap())
         );
 
@@ -1236,7 +1213,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(tabs, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                .add(tabs)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(layout.createSequentialGroup()
@@ -1438,12 +1415,22 @@ public class PistasInterfaz extends javax.swing.JFrame {
                     Peticion peti = new Peticion(pista);
                     if (!inicio){
                         fabricametodos.getL().add(peti);
+                        metodos.listar(((ArrayList<Peticion>)fabricametodos.getL()), this.getListaPorSatisfacerFIFO());
+                        metodos.listar(((ArrayList<Peticion>)fabricametodos.getL()), this.getListaPorSatisfacerSSTF());
+                        metodos.listar(((ArrayList<Peticion>)fabricametodos.getL()), this.getListaPorSatisfacerSCANL());
+                        metodos.listar(((ArrayList<Peticion>)fabricametodos.getL()), this.getListaPorSatisfacerCSCAN());
+                        metodos.listar(((ArrayList<Peticion>)fabricametodos.getL()), this.getListaPorSatisfacerFSCAN());
                     } else {
                         this.CSCAN_.agregarP(peti);
                         this.FIFO_.agregarP(peti);
                         this.FSCAN_.agregarP(peti);
                         this.SCANL_.agregarP(peti);
                         this.SSTF_.agregarP(peti);
+                        FIFO_.listar(((ArrayList<Peticion>)FIFO_.getPNS()), this.getListaPorSatisfacerFIFO());
+                        SSTF_.listar(((ArrayList<Peticion>)SSTF_.getPNS()), this.getListaPorSatisfacerSSTF());
+                        SCANL_.listar(((ArrayList<Peticion>)SCANL_.getPNS()), this.getListaPorSatisfacerSCANL());
+                        CSCAN_.listar(((ArrayList<Peticion>)CSCAN_.getPNS()), this.getListaPorSatisfacerCSCAN());
+                        FSCAN_.listar(((ArrayList<Peticion>)FSCAN_.getPNS()), this.getListaPorSatisfacerFSCAN());
                     }
                     JOptionPane.showMessageDialog(null, "Se agrego la peticion a la lista");
                 }
@@ -1488,6 +1475,14 @@ public class PistasInterfaz extends javax.swing.JFrame {
                 new PistasInterfaz().setVisible(true);
             }
         });
+    }
+
+    public JList getColaSatisfaciendoFSCAN() {
+        return ColaSatisfaciendoFSCAN;
+    }
+
+    public void setColaSatisfaciendoFSCAN(JList ColaSatisfaciendoFSCAN) {
+        this.ColaSatisfaciendoFSCAN = ColaSatisfaciendoFSCAN;
     }
 
     public void setPRealizadasCSCAN(String PRealizadasCSCAN) {
@@ -1735,8 +1730,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CSCAN;
-    private javax.swing.JList ColaAFSCAN;
-    private javax.swing.JList ColaBFSCAN;
+    private javax.swing.JList ColaSatisfaciendoFSCAN;
     private javax.swing.JRadioButton Creciente;
     private javax.swing.JRadioButton Decreciente;
     private javax.swing.ButtonGroup Direccioninicial;
@@ -1855,7 +1849,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -1869,7 +1862,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

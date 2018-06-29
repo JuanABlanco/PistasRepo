@@ -23,6 +23,12 @@ public class Peticion {
         this.TT = 0.1+(0.1+1)*e.nextDouble();
     }
     
+    @Override
+    public String toString(){
+        String salida = "Pista:"+getPista()+" Tiempo:"+getTT();
+        return salida;
+    }
+    
     //---------------------------------------- Setters and Getters ---------------------------------------------//
 
     public double getTT() {

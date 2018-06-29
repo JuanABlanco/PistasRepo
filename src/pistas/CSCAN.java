@@ -5,6 +5,7 @@
  */
 package pistas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -55,6 +56,8 @@ public class CSCAN extends Metodos{
                 interfaz.setTiempoRecorriendoCSCAN(Double.toString(this.TRP));
                 interfaz.setTTransferenciaCSCAN(Double.toString(this.TTT));
                 interfaz.setTTotalCSCAN(Double.toString(this.TTE));
+                listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerCSCAN());
+                listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasCSCAN());
             } else {
                 synchronized(this){
                     pausa();

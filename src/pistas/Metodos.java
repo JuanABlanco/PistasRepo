@@ -18,7 +18,7 @@ public abstract class Metodos extends Thread{
     int NPRe=0; //Numero de peticiones realizadas 
     int NPps=0; //Numero de peticiones por satisfacer 
     int NPS=0; //Numero de peticiones satisfechas
-    List<Peticion> PNS; // Lista de peticiones a satisfacer
+    List<Peticion> PNS = new ArrayList<Peticion>(); // Lista de peticiones a satisfacer
     List<Peticion> PS= new ArrayList<Peticion>();  // Lista de peticiones satisfechas
     int NP;  // Numero de pistas recorridas 
     float PPR; // Promedio de pistas recorridas por cadapeticion 

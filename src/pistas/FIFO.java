@@ -47,6 +47,8 @@ public class FIFO extends Metodos {
                 interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
                 interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
                 interfaz.setTTotalFIFO(Double.toString(this.TTE));
+                listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFIFO());
+                listar(((ArrayList<Peticion>)this.PS), interfaz.getListaSatisfechasFIFO());
             } else {
                 synchronized(this){
                     pausa();
