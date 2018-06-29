@@ -7,6 +7,8 @@ package pistas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,16 +26,22 @@ public class FabricaMetodos {
     }
     
     public Metodos getMetodo(String s){
+        List<Peticion> clone = new ArrayList<Peticion>(l);
+        List<Peticion> clone1 = new ArrayList<Peticion>(l);
+        List<Peticion> clone2 = new ArrayList<Peticion>(l);
+        List<Peticion> clone3 = new ArrayList<Peticion>(l);
+        List<Peticion> clone4 = new ArrayList<Peticion>(l);
+        
         if (s.equalsIgnoreCase("FIFO")){
-            return new FIFO(l,listaVector, PI, interfaz);
+            return new FIFO(clone,listaVector, PI, interfaz);
         } else if (s.equalsIgnoreCase("SSTF")){
-            return new SSTF(l ,listaVector, PI, interfaz);
+            return new SSTF(clone1 ,listaVector, PI, interfaz);
         } else if (s.equalsIgnoreCase("SCANL")){
-            return new SCANL(l,listaVector, PI, direccion, interfaz);
+            return new SCANL(clone2,listaVector, PI, direccion, interfaz);
         } else if (s.equalsIgnoreCase("CSCAN")){
-            return new CSCAN(l,listaVector, PI, direccion, interfaz);
+            return new CSCAN(clone3,listaVector, PI, direccion, interfaz);
         } else {
-            return new FSCAN(l,listaVector, PI, direccion, interfaz);
+            return new FSCAN(clone4,listaVector, PI, direccion, interfaz);
         }
     }
 
