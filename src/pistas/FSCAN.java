@@ -19,8 +19,8 @@ public class FSCAN extends Metodos{
     private boolean direccion; //Variable que indica la direccion del brazo, TRUE=Derecha FALSE=Izquierda
     PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
     
-    public FSCAN(List PNS, int PI, boolean direccion, PistasInterfaz interfaz) {
-        super(PNS, PI);
+    public FSCAN(List PNS,int[] PNSv, int PI, boolean direccion, PistasInterfaz interfaz) {
+        super(PNS, PNSv, PI);
         this.direccion = direccion;
         this.interfaz = interfaz;
     }

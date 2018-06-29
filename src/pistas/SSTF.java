@@ -16,8 +16,8 @@ import java.util.logging.Logger;
  */
 public class SSTF extends Metodos{
         PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
-    public SSTF(List PNS, int PI, PistasInterfaz interfaz) {
-        super(PNS, PI);
+    public SSTF(List PNS,int[] PNSv, int PI, PistasInterfaz interfaz) {
+        super(PNS,PNSv, PI);
         this.interfaz = interfaz;
     }
 //pi pista en la que inicia el brazo
@@ -33,7 +33,14 @@ public class SSTF extends Metodos{
                 System.out.println(p[i]);
             }
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.size() != 0){
+            boolean pendientes = false;
+            for (int i = 0; i < PNSv.length; i++){
+                if (PNSv[i] == 1){
+                    pendientes = true;
+                    break;
+                }
+            }
+            if (pendientes){
                 //Se verifica a cual lado se movera el brazo 
                 // a traves de los metodos 
                 int distanciaC = 0;

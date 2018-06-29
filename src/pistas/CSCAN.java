@@ -18,8 +18,8 @@ public class CSCAN extends Metodos{
     private boolean direccion; //Variable que indica la direccion del brazo, TRUE=Derecha FALSE=Izquierda 
     PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
     
-    public CSCAN(List PNS, int PI, boolean direccion, PistasInterfaz interfaz) {
-        super(PNS, PI);
+    public CSCAN(List PNS,int[] PNSv, int PI, boolean direccion, PistasInterfaz interfaz) {
+        super(PNS,PNSv, PI);
         this.direccion = direccion;
         this.interfaz = interfaz;
     }
@@ -35,8 +35,14 @@ public class CSCAN extends Metodos{
             for(int i=0; i<p.length; i++){
                 System.out.println(p[i]);
             }
-            //Se verifica si existen peticiones pendientes 
-            if (this.PNS.size() != 0){
+            boolean pendientes = false;
+            for (int i = 0; i < PNSv.length; i++){
+                if (PNSv[i] == 1){
+                    pendientes = true;
+                    break;
+                }
+            }
+            if (pendientes){
                 //Se verifica a cual lado se movera el brazo 
                 if(direccion){
                     recorridoP();

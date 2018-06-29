@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class FabricaMetodos {
     private List<Peticion> l = new ArrayList<Peticion>();
+    private int listaVector[];
     private int PI;
     private boolean direccion;
     private PistasInterfaz interfaz = new PistasInterfaz();
@@ -24,15 +25,15 @@ public class FabricaMetodos {
     
     public Metodos getMetodo(String s){
         if (s.equalsIgnoreCase("FIFO")){
-            return new FIFO(l, PI, interfaz);
+            return new FIFO(l,listaVector, PI, interfaz);
         } else if (s.equalsIgnoreCase("SSTF")){
-            return new SSTF(l , PI, interfaz);
+            return new SSTF(l ,listaVector, PI, interfaz);
         } else if (s.equalsIgnoreCase("SCANL")){
-            return new SCANL(l, PI, direccion, interfaz);
+            return new SCANL(l,listaVector, PI, direccion, interfaz);
         } else if (s.equalsIgnoreCase("CSCAN")){
-            return new CSCAN(l, PI, direccion, interfaz);
+            return new CSCAN(l,listaVector, PI, direccion, interfaz);
         } else {
-            return new FSCAN(l, PI, direccion, interfaz);
+            return new FSCAN(l,listaVector, PI, direccion, interfaz);
         }
     }
 
@@ -58,6 +59,10 @@ public class FabricaMetodos {
 
     public void setDireccion(boolean direccion) {
         this.direccion = direccion;
+    }
+
+    public void setListaVector(int[] listaVector) {
+        this.listaVector = listaVector;
     }
     
     

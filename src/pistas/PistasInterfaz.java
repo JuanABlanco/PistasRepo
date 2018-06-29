@@ -1360,11 +1360,11 @@ public class PistasInterfaz extends javax.swing.JFrame {
                     this.SCANL_ = ((SCANL)fabricametodos.getMetodo("SCANL"));
                     this.SSTF_= ((SSTF)fabricametodos.getMetodo("SSTF"));
                     
-                    this.CSCAN_.start();
+                    //this.CSCAN_.start();
                     this.FIFO_.start();
-                    this.FSCAN_.start();
-                    this.SCANL_.start();
-                    this.SSTF_.start();
+                    //this.FSCAN_.start();
+                    //this.SCANL_.start();
+                    //this.SSTF_.start();
                 }
             
             }

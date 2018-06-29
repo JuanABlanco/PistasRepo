@@ -20,8 +20,8 @@ public class SCANL extends Metodos {
     private int[] extremos = new int[2];// La posicion 0 corresponde al limite inferior y la psicion 1 al superior
     PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
 
-    public SCANL(List PNS, int PI, boolean direccion, PistasInterfaz interfaz) {
-        super(PNS, PI);
+    public SCANL(List PNS,int[] PNSv, int PI, boolean direccion, PistasInterfaz interfaz) {
+        super(PNS,PNSv, PI);
         this.direccion = direccion;
         this.interfaz = interfaz;
     }
@@ -42,7 +42,14 @@ public class SCANL extends Metodos {
             //Se buscan los extremos
             extremar();
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.size() != 0){
+            boolean pendientes = false;
+            for (int i = 0; i < PNSv.length; i++){
+                if (PNSv[i] == 1){
+                    pendientes = true;
+                    break;
+                }
+            }
+            if (pendientes){
                 //Se verifica a cual lado se movera el brazo 
                 if(this.direccion){
                     //Se recorre el disco de forma creciente 

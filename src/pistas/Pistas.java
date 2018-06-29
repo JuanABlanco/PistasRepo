@@ -11,8 +11,8 @@ package pistas;
  */
 public class Pistas {
 static public PistasInterfaz interfaz = new PistasInterfaz();
-static public FabricaMetodos fabricametodos = new FabricaMetodos(interfaz);
-static public Metodos metodos = new Metodos(fabricametodos.getL(), fabricametodos.getPI()) {};
+static public FabricaMetodos fabricametodos;
+static public Metodos metodos;
 
         
         
@@ -20,6 +20,17 @@ static public Metodos metodos = new Metodos(fabricametodos.getL(), fabricametodo
         interfaz.setVisible(true);
         interfaz.setDefaultCloseOperation(interfaz.EXIT_ON_CLOSE);
         interfaz.setResizable(false);
+        fabricametodos = new FabricaMetodos(interfaz);
+        int[] vectorPeticiones = new int[4000];
+        for (int i = 0; i < vectorPeticiones.length ;i++){
+            vectorPeticiones[i] = 0;
+        }
+        int[] vectorSatisfechas = new int[4000];
+        for (int i = 0; i < vectorSatisfechas.length ;i++){
+            vectorPeticiones[i] = 0;
+        }
+        fabricametodos.setListaVector(vectorPeticiones);
+        metodos = new Metodos(fabricametodos.getL(), vectorPeticiones, fabricametodos.getPI()) {} ;
         
         
     }

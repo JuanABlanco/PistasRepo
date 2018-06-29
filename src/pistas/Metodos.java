@@ -20,6 +20,8 @@ public abstract class Metodos extends Thread{
     int NPS=0; //Numero de peticiones satisfechas
     List<Peticion> PNS = new ArrayList<Peticion>(); // Lista de peticiones a satisfacer
     List<Peticion> PS= new ArrayList<Peticion>();  // Lista de peticiones satisfechas
+    int PNSv[]; //vector de peticiones a satisfacer
+    int PSv[]; //vector de peticiones satisfechas
     int NP;  // Numero de pistas recorridas 
     float PPR; // Promedio de pistas recorridas por cadapeticion 
     double TRP; //Tiempo empleado recorriendo pistas 
@@ -28,14 +30,18 @@ public abstract class Metodos extends Thread{
     int PI; // Pista en la que inicia el brazo
     boolean pausa = false; //Indicador de no quedan mas peticiones a servir y el metodo debe pausarse 
 
-    public Metodos(List<Peticion> PNS, int PI) {
+    public Metodos(List<Peticion> PNS, int[] PNSv, int PI) {
         this.PNS = PNS;
+        this.PNSv = PNSv;
         this.PI = PI;
+        PS = new ArrayList<>();
+        PSv = new int[4000];
     }
     //------------------------------------------------------      Metodos       ----------------------------------------------------------//
     //Este metodo enlista la peticion entrante de ultima en la lista de peticiones a satisfacer y aumenta en 1 el numero de peticiones a satisfacer y el numero de peticiones realizadas
     public void agregarP (Peticion a){
         this.PNS.add(a);
+        this.PNSv[a.getPista()] = 1;
         this.NPps ++;
         this.NPRe ++;
         if (this.pausa){
@@ -147,6 +153,14 @@ public abstract class Metodos extends Thread{
 
     public void setTTE(double TTE) {
         this.TTE = TTE;
+    }
+
+    public int[] getPNSv() {
+        return PNSv;
+    }
+
+    public int[] getPSv() {
+        return PSv;
     }
     
     
