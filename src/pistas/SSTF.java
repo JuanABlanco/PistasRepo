@@ -116,7 +116,7 @@ public class SSTF extends Metodos{
                     //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 
                     this.TTT = this.TTT + this.PNS.get(0).getTT();
                     //Cambio de lista
-                    this.PS.set(0, this.PNS.remove(0)); 
+                    this.PS.add(this.PNS.remove(0)); 
                     //Aumentar el contador de peticiones 
                     this.NPS ++;
                     //Aumentar el numero de pistas recorridas
@@ -149,7 +149,7 @@ public class SSTF extends Metodos{
                     //Se acumula el tiempo de transferencia de la peticion en el tiempo de transferencia total 
                     this.TTT = this.TTT + this.PNS.get(0).getTT();
                     //Cambio de lista
-                    this.PS.set(0, this.PNS.remove(0)); 
+                    this.PS.add(this.PNS.remove(0)); 
                     //Aumentar el contador de peticiones 
                     this.NPS ++;
                     //Aumentar el numero de pistas recorridas
