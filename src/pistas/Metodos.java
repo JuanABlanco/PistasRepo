@@ -6,6 +6,9 @@
 package pistas;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import static pistas.Pistas.interfaz;
 
 /**
  *
@@ -38,6 +41,20 @@ public abstract class Metodos extends Thread{
         if (this.pausa){
             reanudar();
         }
+        
+    }
+    
+    //Mostrar todos los elementos de una lista
+    public void listar (ArrayList<Peticion> l, JList jl){
+        //Crear un objeto DefaultListModel
+        DefaultListModel listModel = new DefaultListModel();
+        //Recorrer el contenido del ArrayList
+        for(int i=0; i<l.size(); i++) {
+            //Añadir cada elemento del ArrayList en el modelo de la lista
+            listModel.add(i, l.get(i));
+        }
+        //Asociar el modelo de lista al JList
+        jl.setModel(listModel);       
     }
     
     public synchronized void pausa(){

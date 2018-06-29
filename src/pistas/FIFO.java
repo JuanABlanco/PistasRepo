@@ -62,6 +62,7 @@ public class FIFO extends Metodos {
         }
     }
     
+    
     public void recorridoP (){
         for (int i=this.PI; i<4000; i++){
             if (this.PNS.get(0).getPista() == i){

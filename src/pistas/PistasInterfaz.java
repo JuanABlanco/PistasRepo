@@ -1649,6 +1649,86 @@ public class PistasInterfaz extends javax.swing.JFrame {
     public void setTiempoRecorriendoSSTF(String TiempoRecorriendoSSTF) {
         this.TiempoRecorriendoSSTF .setText(TiempoRecorriendoSSTF);
     }
+
+    public JList getListaPorSatisfacerCSCAN() {
+        return ListaPorSatisfacerCSCAN;
+    }
+
+    public void setListaPorSatisfacerCSCAN(JList ListaPorSatisfacerCSCAN) {
+        this.ListaPorSatisfacerCSCAN = ListaPorSatisfacerCSCAN;
+    }
+
+    public JList getListaPorSatisfacerFIFO() {
+        return ListaPorSatisfacerFIFO;
+    }
+
+    public void setListaPorSatisfacerFIFO(JList ListaPorSatisfacerFIFO) {
+        this.ListaPorSatisfacerFIFO = ListaPorSatisfacerFIFO;
+    }
+
+    public JList getListaPorSatisfacerFSCAN() {
+        return ListaPorSatisfacerFSCAN;
+    }
+
+    public void setListaPorSatisfacerFSCAN(JList ListaPorSatisfacerFSCAN) {
+        this.ListaPorSatisfacerFSCAN = ListaPorSatisfacerFSCAN;
+    }
+
+    public JList getListaPorSatisfacerSCANL() {
+        return ListaPorSatisfacerSCANL;
+    }
+
+    public void setListaPorSatisfacerSCANL(JList ListaPorSatisfacerSCANL) {
+        this.ListaPorSatisfacerSCANL = ListaPorSatisfacerSCANL;
+    }
+
+    public JList getListaPorSatisfacerSSTF() {
+        return ListaPorSatisfacerSSTF;
+    }
+
+    public void setListaPorSatisfacerSSTF(JList ListaPorSatisfacerSSTF) {
+        this.ListaPorSatisfacerSSTF = ListaPorSatisfacerSSTF;
+    }
+
+    public JList getListaSatisfechasCSCAN() {
+        return ListaSatisfechasCSCAN;
+    }
+
+    public void setListaSatisfechasCSCAN(JList ListaSatisfechasCSCAN) {
+        this.ListaSatisfechasCSCAN = ListaSatisfechasCSCAN;
+    }
+
+    public JList getListaSatisfechasFIFO() {
+        return ListaSatisfechasFIFO;
+    }
+
+    public void setListaSatisfechasFIFO(JList ListaSatisfechasFIFO) {
+        this.ListaSatisfechasFIFO = ListaSatisfechasFIFO;
+    }
+
+    public JList getListaSatisfechasFSCAN() {
+        return ListaSatisfechasFSCAN;
+    }
+
+    public void setListaSatisfechasFSCAN(JList ListaSatisfechasFSCAN) {
+        this.ListaSatisfechasFSCAN = ListaSatisfechasFSCAN;
+    }
+
+    public JList getListaSatisfechasSCANL() {
+        return ListaSatisfechasSCANL;
+    }
+
+    public void setListaSatisfechasSCANL(JList ListaSatisfechasSCANL) {
+        this.ListaSatisfechasSCANL = ListaSatisfechasSCANL;
+    }
+
+    public JList getListaSatisfechasSSTF() {
+        return ListaSatisfechasSSTF;
+    }
+
+    public void setListaSatisfechasSSTF(JList ListaSatisfechasSSTF) {
+        this.ListaSatisfechasSSTF = ListaSatisfechasSSTF;
+    }
     
     
     
