@@ -65,15 +65,9 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Decreciente" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="Iniciar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Pausar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Reanudar" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="Iniciar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -99,11 +93,7 @@
                           <Component id="Decreciente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Iniciar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Pausar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Reanudar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="Iniciar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1795,16 +1785,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IniciarActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Pausar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pausar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="Reanudar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reanudar"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel63">
       <Properties>

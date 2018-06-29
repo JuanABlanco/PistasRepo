@@ -17,6 +17,7 @@ public class FabricaMetodos {
     private int PI;
     private boolean direccion;
     private PistasInterfaz interfaz = new PistasInterfaz();
+    
     public FabricaMetodos(PistasInterfaz interfaz) {
         this.interfaz = interfaz; // ESTO no lo he pasado a los metodos
     }

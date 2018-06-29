@@ -23,7 +23,13 @@ import static pistas.Pistas.metodos;
  * @author Ivan
  */
 public class PistasInterfaz extends javax.swing.JFrame {
-
+    private boolean inicio = false;
+    private CSCAN CSCAN_;
+    private FIFO FIFO_;
+    private FSCAN FSCAN_;
+    private SCANL SCANL_;
+    private SSTF SSTF_;
+    
     public PistasInterfaz() {
         initComponents();
     }
@@ -177,8 +183,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         PeticionPista = new javax.swing.JTextField();
         Iniciar = new javax.swing.JButton();
-        Pausar = new javax.swing.JButton();
-        Reanudar = new javax.swing.JButton();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         PistaInicialBrazo = new javax.swing.JTextField();
@@ -1185,10 +1189,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
             }
         });
 
-        Pausar.setText("Pausar");
-
-        Reanudar.setText("Reanudar");
-
         jLabel63.setText("Inicio");
 
         jLabel64.setText("Número de la pista del brazo inicial:");
@@ -1230,13 +1230,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                                 .add(Creciente)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(Decreciente))
-                            .add(layout.createSequentialGroup()
-                                .add(Iniciar)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(Pausar)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(Reanudar)))
-                        .add(80, 80, 80))))
+                            .add(Iniciar))
+                        .add(97, 97, 97))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1256,10 +1251,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
                             .add(Creciente)
                             .add(Decreciente))
                         .add(18, 18, 18)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(Iniciar)
-                            .add(Pausar)
-                            .add(Reanudar)))
+                        .add(Iniciar))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
                             .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1357,36 +1349,50 @@ public class PistasInterfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Introduzca la pista inicial");
         }
         else{
-            int pistaInicial = Integer.parseInt(PistaInicialBrazo.getText().toString());
-            if (pistaInicial <= 0 || pistaInicial >= 4000){
+            int pistaInicial = Integer.parseInt(PistaInicialBrazo.getText());
+            if (pistaInicial < 0 || pistaInicial >= 4000){
                 JOptionPane.showMessageDialog(null, "Introduzca una pista inicial entre 1 y 3999");
             }
             else{
-            boolean direccion = true;
-            if (!Creciente.isSelected() && !Decreciente.isSelected()){
-                JOptionPane.showMessageDialog(null, "Introduzca la direccion");
-            }
-            else{
-                if (Creciente.isSelected()){
-                    direccion = true;
-                    fabricametodos.setDireccion(direccion);
-                    fabricametodos.setPI(pistaInicial);
-                    //no permitira modificar lo del inicio
-                    Iniciar.setEnabled(false);
-                    PistaInicialBrazo.setEditable(false);
+                boolean direccion = true;
+                if (!Creciente.isSelected() && !Decreciente.isSelected()){
+                    JOptionPane.showMessageDialog(null, "Introduzca la direccion");
                 }
                 else{
-                    direccion = false;
-                    fabricametodos.setDireccion(direccion);
-                    fabricametodos.setPI(pistaInicial);
-                    //no permitira modificar lo del inicio
-                    Iniciar.setEnabled(false);
-                    PistaInicialBrazo.setEditable(false);
+                    if (Creciente.isSelected()){
+                        direccion = true;
+                        fabricametodos.setDireccion(direccion);
+                        fabricametodos.setPI(pistaInicial);
+                        //no permitira modificar lo del inicio
+                        Iniciar.setEnabled(false);
+                        PistaInicialBrazo.setEditable(false);
+                    }
+                    else{
+                        direccion = false;
+                        fabricametodos.setDireccion(direccion);
+                        fabricametodos.setPI(pistaInicial);
+                        //no permitira modificar lo del inicio
+                        Iniciar.setEnabled(false);
+                        PistaInicialBrazo.setEditable(false);
+                    }
+                    this.inicio = true;
+                    
+                    this.CSCAN_ = ((CSCAN)fabricametodos.getMetodo("CSCAN"));
+                    this.FIFO_ = ((FIFO)fabricametodos.getMetodo("FIFO"));
+                    this.FSCAN_ = ((FSCAN)fabricametodos.getMetodo("FSCAN"));
+                    this.SCANL_ = ((SCANL)fabricametodos.getMetodo("SCANL"));
+                    this.SSTF_= ((SSTF)fabricametodos.getMetodo("SSTF"));
+                    
+                    this.CSCAN_.start();
+                    this.FIFO_.start();
+                    this.FSCAN_.start();
+                    this.SCANL_.start();
+                    this.SSTF_.start();
                 }
-            }
             
             }
-        }    
+        }
+        
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void PRealizadasFIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRealizadasFIFOActionPerformed
@@ -1410,15 +1416,38 @@ public class PistasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PRealizadasFSCANActionPerformed
 
     private void IngresarPeticionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarPeticionActionPerformed
-       //REVISAR ESTO
+        //REVISAR ESTO
         //No lo agrega a la lista en la interfaz pero si a la lista
         if (PeticionPista.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Introduzca la pista inicial");
+            JOptionPane.showMessageDialog(null, "Introduzca la pista de la peticion");
         }else{
-            int pista = Integer.parseInt(PeticionPista.getText().toString());
-            Peticion peti = new Peticion(pista);
-            metodos.agregarP(peti);
-            JOptionPane.showMessageDialog(null, "Se agrego la peticion a la lista");
+            int pista = Integer.parseInt(PeticionPista.getText());
+            if(pista < 0 || pista > 3999){
+                JOptionPane.showMessageDialog(null, "Introduzca una pista valida");
+            }else{
+                boolean po = false;
+                for(int i=0; i<fabricametodos.getL().size(); i++){
+                    if(fabricametodos.getL().get(i).getPista() == pista){
+                        po = true;
+                        break;
+                    }
+                }
+                if(po){
+                    JOptionPane.showMessageDialog(null, "La pista ya tiene una peticion asignada");
+                } else {  
+                    Peticion peti = new Peticion(pista);
+                    if (!inicio){
+                        fabricametodos.getL().add(peti);
+                    } else {
+                        this.CSCAN_.agregarP(peti);
+                        this.FIFO_.agregarP(peti);
+                        this.FSCAN_.agregarP(peti);
+                        this.SCANL_.agregarP(peti);
+                        this.SSTF_.agregarP(peti);
+                    }
+                    JOptionPane.showMessageDialog(null, "Se agrego la peticion a la lista");
+                }
+            }
         }
     }//GEN-LAST:event_IngresarPeticionActionPerformed
 
@@ -1539,10 +1568,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
 
     public void setPSatisfechasSSTF(String PSatisfechasSSTF) {
         this.PSatisfechasSSTF.setText(PSatisfechasSSTF);
-    }
-
-    public void setPausar(JButton Pausar) {
-        this.Pausar = Pausar;
     }
 
     public void setPromedioRSCSCAN(String PromedioRSCSCAN) {
@@ -1669,7 +1694,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField PSatisfechasFSCAN;
     private javax.swing.JTextField PSatisfechasSCANL;
     private javax.swing.JTextField PSatisfechasSSTF;
-    private javax.swing.JButton Pausar;
     private javax.swing.JTextField PeticionPista;
     private javax.swing.JTextField PistaInicialBrazo;
     private javax.swing.JTextField PromedioRSCSCAN;
@@ -1677,7 +1701,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField PromedioRSFSCAN;
     private javax.swing.JTextField PromedioRSSCANL;
     private javax.swing.JTextField PromedioRSSSTF;
-    private javax.swing.JButton Reanudar;
     private javax.swing.JPanel SCANL;
     private javax.swing.JPanel SSTF;
     private javax.swing.JTextField TTotalCSCAN;
