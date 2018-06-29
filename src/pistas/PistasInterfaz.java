@@ -16,6 +16,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.Timer;
+import static pistas.Pistas.fabricametodos;
+import static pistas.Pistas.metodos;
 /**
  *
  * @author Ivan
@@ -36,6 +38,7 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        Direccioninicial = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
@@ -170,10 +173,18 @@ public class PistasInterfaz extends javax.swing.JFrame {
         ColaBFSCAN = new javax.swing.JList();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        IngresarPeticion = new javax.swing.JButton();
+        jLabel66 = new javax.swing.JLabel();
+        PeticionPista = new javax.swing.JTextField();
         Iniciar = new javax.swing.JButton();
         Pausar = new javax.swing.JButton();
         Reanudar = new javax.swing.JButton();
-        Salir = new javax.swing.JButton();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        PistaInicialBrazo = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        Creciente = new javax.swing.JRadioButton();
+        Decreciente = new javax.swing.JRadioButton();
 
         jMenu1.setText("jMenu1");
 
@@ -353,9 +364,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                         .add(jLabel6)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(FIFOLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(FIFOLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel7)
-                        .add(jLabel8))
+                    .add(jLabel7)
+                    .add(jLabel8)
                     .add(jLabel4)
                     .add(PSatisfacerFIFO, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -527,9 +537,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                         .add(jLabel23)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(SSTFLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(SSTFLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel22)
-                        .add(jLabel24))
+                    .add(jLabel22)
+                    .add(jLabel24)
                     .add(jLabel15)
                     .add(PSatisfacerSSTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -701,9 +710,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                         .add(jLabel34)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(SCANLLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(SCANLLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel33)
-                        .add(jLabel35))
+                    .add(jLabel33)
+                    .add(jLabel35)
                     .add(jLabel26)
                     .add(PSatisfacerSCANL, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -875,9 +883,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                         .add(jLabel45)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(CSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(CSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel44)
-                        .add(jLabel46))
+                    .add(jLabel44)
+                    .add(jLabel46)
                     .add(jLabel37)
                     .add(PSatisfacerCSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -1075,9 +1082,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
                 .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(FSCANLayout.createSequentialGroup()
                         .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(FSCANLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(jLabel55)
-                                .add(jLabel57))
+                            .add(jLabel55)
+                            .add(jLabel57)
                             .add(jLabel48)
                             .add(PSatisfacerFSCAN, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -1124,21 +1130,52 @@ public class PistasInterfaz extends javax.swing.JFrame {
 
         jLabel2.setText("Ingresar Peticion:");
 
+        IngresarPeticion.setText("Ingresar");
+        IngresarPeticion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresarPeticionActionPerformed(evt);
+            }
+        });
+
+        jLabel66.setText("Pista:");
+
+        PeticionPista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PeticionPistaActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jLabel2)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(IngresarPeticion))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel2)
+                        .add(0, 0, Short.MAX_VALUE))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jLabel66)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(PeticionPista, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 98, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(0, 100, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabel2)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel66)
+                    .add(PeticionPista, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(IngresarPeticion))
         );
 
         Iniciar.setText("Iniciar");
@@ -1152,7 +1189,17 @@ public class PistasInterfaz extends javax.swing.JFrame {
 
         Reanudar.setText("Reanudar");
 
-        Salir.setText("Salir");
+        jLabel63.setText("Inicio");
+
+        jLabel64.setText("Número de la pista del brazo inicial:");
+
+        jLabel65.setText("Sentido:");
+
+        Direccioninicial.add(Creciente);
+        Creciente.setText("Creciente");
+
+        Direccioninicial.add(Decreciente);
+        Decreciente.setText("Decreciente");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1162,37 +1209,62 @@ public class PistasInterfaz extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(layout.createSequentialGroup()
+                        .add(26, 26, 26)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(10, 10, 10)
+                                .add(jLabel64)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(PistaInicialBrazo))
+                            .add(jLabel63))
+                        .addContainerGap())
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(Iniciar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Pausar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Reanudar)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(Salir)
-                        .add(11, 11, 11)))
-                .addContainerGap())
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(jLabel65)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(Creciente)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(Decreciente))
+                            .add(layout.createSequentialGroup()
+                                .add(Iniciar)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(Pausar)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(Reanudar)))
+                        .add(80, 80, 80))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(tabs)
+                .add(tabs, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(layout.createSequentialGroup()
-                        .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .add(layout.createSequentialGroup()
-                        .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabel63)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel64)
+                            .add(PistaInicialBrazo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel65)
+                            .add(Creciente)
+                            .add(Decreciente))
+                        .add(18, 18, 18)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(Iniciar)
                             .add(Pausar)
-                            .add(Reanudar)
-                            .add(Salir)))))
+                            .add(Reanudar)))
+                    .add(layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
 
         tabs.getAccessibleContext().setAccessibleName("FIFO");
@@ -1281,7 +1353,40 @@ public class PistasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PromedioRSFSCANActionPerformed
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-        
+        if (PistaInicialBrazo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Introduzca la pista inicial");
+        }
+        else{
+            int pistaInicial = Integer.parseInt(PistaInicialBrazo.getText().toString());
+            if (pistaInicial <= 0 || pistaInicial >= 4000){
+                JOptionPane.showMessageDialog(null, "Introduzca una pista inicial entre 1 y 3999");
+            }
+            else{
+            boolean direccion = true;
+            if (!Creciente.isSelected() && !Decreciente.isSelected()){
+                JOptionPane.showMessageDialog(null, "Introduzca la direccion");
+            }
+            else{
+                if (Creciente.isSelected()){
+                    direccion = true;
+                    fabricametodos.setDireccion(direccion);
+                    fabricametodos.setPI(pistaInicial);
+                    //no permitira modificar lo del inicio
+                    Iniciar.setEnabled(false);
+                    PistaInicialBrazo.setEditable(false);
+                }
+                else{
+                    direccion = false;
+                    fabricametodos.setDireccion(direccion);
+                    fabricametodos.setPI(pistaInicial);
+                    //no permitira modificar lo del inicio
+                    Iniciar.setEnabled(false);
+                    PistaInicialBrazo.setEditable(false);
+                }
+            }
+            
+            }
+        }    
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void PRealizadasFIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRealizadasFIFOActionPerformed
@@ -1303,6 +1408,23 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private void PRealizadasFSCANActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRealizadasFSCANActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PRealizadasFSCANActionPerformed
+
+    private void IngresarPeticionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarPeticionActionPerformed
+       //REVISAR ESTO
+        //No lo agrega a la lista en la interfaz pero si a la lista
+        if (PeticionPista.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Introduzca la pista inicial");
+        }else{
+            int pista = Integer.parseInt(PeticionPista.getText().toString());
+            Peticion peti = new Peticion(pista);
+            metodos.agregarP(peti);
+            JOptionPane.showMessageDialog(null, "Se agrego la peticion a la lista");
+        }
+    }//GEN-LAST:event_IngresarPeticionActionPerformed
+
+    private void PeticionPistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeticionPistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PeticionPistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1510,8 +1632,12 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel CSCAN;
     private javax.swing.JList ColaAFSCAN;
     private javax.swing.JList ColaBFSCAN;
+    private javax.swing.JRadioButton Creciente;
+    private javax.swing.JRadioButton Decreciente;
+    private javax.swing.ButtonGroup Direccioninicial;
     private javax.swing.JPanel FIFO;
     private javax.swing.JPanel FSCAN;
+    private javax.swing.JButton IngresarPeticion;
     private javax.swing.JButton Iniciar;
     private javax.swing.JList ListaPorSatisfacerCSCAN;
     private javax.swing.JList ListaPorSatisfacerFIFO;
@@ -1544,6 +1670,8 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField PSatisfechasSCANL;
     private javax.swing.JTextField PSatisfechasSSTF;
     private javax.swing.JButton Pausar;
+    private javax.swing.JTextField PeticionPista;
+    private javax.swing.JTextField PistaInicialBrazo;
     private javax.swing.JTextField PromedioRSCSCAN;
     private javax.swing.JTextField PromedioRSFIFO;
     private javax.swing.JTextField PromedioRSFSCAN;
@@ -1552,7 +1680,6 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton Reanudar;
     private javax.swing.JPanel SCANL;
     private javax.swing.JPanel SSTF;
-    private javax.swing.JButton Salir;
     private javax.swing.JTextField TTotalCSCAN;
     private javax.swing.JTextField TTotalFIFO;
     private javax.swing.JTextField TTotalFSCAN;
@@ -1627,6 +1754,10 @@ public class PistasInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

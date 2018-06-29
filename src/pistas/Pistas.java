@@ -10,12 +10,17 @@ package pistas;
  * @author Juan Arturo Blanco
  */
 public class Pistas {
+static public PistasInterfaz interfaz = new PistasInterfaz();
+static public FabricaMetodos fabricametodos = new FabricaMetodos(interfaz);
+static public Metodos metodos = new Metodos(fabricametodos.getL(), fabricametodos.getPI()) {};
 
-    /**
-     * @param args the command line arguments
-     */
+        
+        
     public static void main(String[] args) {
-        // TODO code application logic here
+        interfaz.setVisible(true);
+        interfaz.setDefaultCloseOperation(interfaz.EXIT_ON_CLOSE);
+        interfaz.setResizable(false);
+        
+        
     }
-    
 }
