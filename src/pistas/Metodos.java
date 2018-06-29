@@ -41,7 +41,6 @@ public abstract class Metodos extends Thread{
         if (this.pausa){
             reanudar();
         }
-        
     }
     
     //Mostrar todos los elementos de una lista
