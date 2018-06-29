@@ -28,6 +28,12 @@ public class FSCAN extends Metodos{
     //---------------------------------------------------- Metodos ------------------------------//
     @Override
     public void run (){
+        Peticion p [] = new Peticion[this.PNS.size()];
+        p = this.PNS.toArray(p);
+        System.out.println(p.length);
+        for(int i=0; i<p.length; i++){
+            System.out.println(p[i]);
+        }
         //Verificamos que las listas pendiente y activa no esten vacias 
         if(!(this.PEP.isEmpty())){
             listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFSCAN());

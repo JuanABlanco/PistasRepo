@@ -33,10 +33,16 @@ public class SCANL extends Metodos {
         //Se toma el tiempo en que se inicio la simulacion 
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         while(true){
+            Peticion p [] = new Peticion[this.PNS.size()];
+            p = this.PNS.toArray(p);
+            System.out.println(p.length);
+            for(int i=0; i<p.length; i++){
+                System.out.println(p[i]);
+            }
             //Se buscan los extremos
             extremar();
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.get(0) != null){
+            if (this.PNS.size() != 0){
                 //Se verifica a cual lado se movera el brazo 
                 if(this.direccion){
                     //Se recorre el disco de forma creciente 

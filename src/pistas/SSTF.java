@@ -26,8 +26,14 @@ public class SSTF extends Metodos{
         //tiempo en que inicia la simulacion
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000; 
         while(true){
+            Peticion p [] = new Peticion[this.PNS.size()];
+            p = this.PNS.toArray(p);
+            System.out.println(p.length);
+            for(int i=0; i<p.length; i++){
+                System.out.println(p[i]);
+            }
             //Se verifica si existen peticiones pendientes 
-            if (this.PNS.get(0) != null){
+            if (this.PNS.size() != 0){
                 //Se verifica a cual lado se movera el brazo 
                 // a traves de los metodos 
                 int distanciaC = 0;
