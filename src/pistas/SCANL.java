@@ -33,12 +33,6 @@ public class SCANL extends Metodos {
         //Se toma el tiempo en que se inicio la simulacion 
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         while(true){
-            Peticion p [] = new Peticion[this.PNS.size()];
-            p = this.PNS.toArray(p);
-            System.out.println(p.length);
-            for(int i=0; i<p.length; i++){
-                System.out.println(p[i]);
-            }
             //Se buscan los extremos
             extremar();
             //Se verifica si existen peticiones pendientes 
@@ -109,7 +103,7 @@ public class SCANL extends Metodos {
     public void recorridoP (){
         for (int i=this.PI; i<this.extremos[1]; i++){
             for (int j=0; j<this.PNS.size(); j++){
-                if (this.PNS.get(j).getPista() == i){
+                if (this.PNSv[i] == 1){
                     try {
                         //Se calcula el tiempo que le tomo encontrarla 
                         this.TRP = 1000/(i-this.PI);
@@ -119,6 +113,8 @@ public class SCANL extends Metodos {
                         this.TTT = this.TTT + this.PNS.get(j).getTT();
                         //Cambio de lista
                         this.PS.add(this.PNS.remove(j)); 
+                        this.PNSv[i] = 0;
+                        this.PSv[NPS] = 1;  
                         //Aumentar el contador de peticiones 
                         this.NPS ++;
                         //Aumentar el numero de pistas recorridas
@@ -139,7 +135,7 @@ public class SCANL extends Metodos {
        public void recorridoN (){
         for (int i=this.PI; i>this.extremos[0]; i--){
             for (int j=0; j<this.PNS.size(); j++){
-                if (this.PNS.get(j).getPista() == i){
+                if (this.PNSv[i] == 1){
                     try {
                         //Se calcula el tiempo que le tomo encontrarla 
                         this.TRP = 1000/(this.PI-i);
@@ -149,6 +145,8 @@ public class SCANL extends Metodos {
                         this.TTT = this.TTT + this.PNS.get(j).getTT();
                         //Cambio de lista
                         this.PS.add(this.PNS.remove(j)); 
+                        this.PNSv[i] = 0;
+                        this.PSv[NPS] = 1;   
                         //Aumentar el contador de peticiones 
                         this.NPS ++;
                         //Aumentar el numero de pistas recorridas

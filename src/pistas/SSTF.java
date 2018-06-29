@@ -26,12 +26,6 @@ public class SSTF extends Metodos{
         //tiempo en que inicia la simulacion
         double TI = (new Double(System.currentTimeMillis())).doubleValue()/1000; 
         while(true){
-            Peticion p [] = new Peticion[this.PNS.size()];
-            p = this.PNS.toArray(p);
-            System.out.println(p.length);
-            for(int i=0; i<p.length; i++){
-                System.out.println(p[i]);
-            }
             //Se verifica si existen peticiones pendientes 
             boolean pendientes = false;
             for (int i = 0; i < PNSv.length; i++){
@@ -84,10 +78,10 @@ public class SSTF extends Metodos{
     
         
     public int proximaCercanaCreciente(){
-        List<Peticion> aux = this.PNS;
+        int aux[] = this.PNSv;
         int distancia = 0;
         for (int i=PI; i<4000; i++){
-            if (aux.get(0).getPista() == i){
+            if (aux[i] == 1){
                 distancia++;
                 break;
             }
@@ -96,10 +90,10 @@ public class SSTF extends Metodos{
         return distancia;
     } 
     public int proximaCercanaDecreciente(){
-        List<Peticion> aux = this.PNS;
+        int aux[] = this.PNSv;
         int distancia = 0;
         for (int i=PI; i>-1; i--){
-            if (aux.get(0).getPista() == i){
+            if (aux[i] == 1){
                 distancia++;
                 break;
             }
@@ -112,7 +106,7 @@ public class SSTF extends Metodos{
         //Se toma el tiempo en que se inicia a recorrer las pistas
         double TIR = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         for (int i=this.PI; i<4000; i++){
-            if (this.PNS.get(0).getPista() == i){
+            if (this.PNSv[i] == 1){
                 try {
                     // Se toma el tiempo en el que consigue la pista adecuada
                     double TCP = (new Double(System.currentTimeMillis())).doubleValue()/1000;
@@ -124,6 +118,8 @@ public class SSTF extends Metodos{
                     this.TTT = this.TTT + this.PNS.get(0).getTT();
                     //Cambio de lista
                     this.PS.add(this.PNS.remove(0)); 
+                    this.PNSv[i] = 0;
+                    this.PSv[NPS] = 1; 
                     //Aumentar el contador de peticiones 
                     this.NPS ++;
                     //Aumentar el numero de pistas recorridas
@@ -145,7 +141,7 @@ public class SSTF extends Metodos{
         //Se toma el tiempo en que se inicia a recorrer las pistas
         double TIR = (new Double(System.currentTimeMillis())).doubleValue()/1000;
         for (int i=this.PI; i>-1; i--){
-            if (this.PNS.get(0).getPista() == i){
+            if (this.PNSv[i] == 1){
                 try {
                     // Se toma el tiempo en el que consigue la pista adecuada
                     double TCP = (new Double(System.currentTimeMillis())).doubleValue()/1000;
@@ -157,6 +153,8 @@ public class SSTF extends Metodos{
                     this.TTT = this.TTT + this.PNS.get(0).getTT();
                     //Cambio de lista
                     this.PS.add(this.PNS.remove(0)); 
+                    this.PNSv[i] = 0;
+                    this.PSv[NPS] = 1;
                     //Aumentar el contador de peticiones 
                     this.NPS ++;
                     //Aumentar el numero de pistas recorridas

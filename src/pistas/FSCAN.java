@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  */
 public class FSCAN extends Metodos{
     List<Peticion> PEP= new ArrayList<Peticion>();//Lista de peticiones que se estan sirviendo 
+    int PEPv[] = new int[4000];;
     private boolean direccion; //Variable que indica la direccion del brazo, TRUE=Derecha FALSE=Izquierda
     PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
     
@@ -28,12 +29,6 @@ public class FSCAN extends Metodos{
     //---------------------------------------------------- Metodos ------------------------------//
     @Override
     public void run (){
-        Peticion p [] = new Peticion[this.PNS.size()];
-        p = this.PNS.toArray(p);
-        System.out.println(p.length);
-        for(int i=0; i<p.length; i++){
-            System.out.println(p[i]);
-        }
         //Verificamos que las listas pendiente y activa no esten vacias 
         if(!(this.PEP.isEmpty())){
             listar(((ArrayList<Peticion>)this.PNS), interfaz.getListaPorSatisfacerFSCAN());
@@ -80,7 +75,7 @@ public class FSCAN extends Metodos{
     public void recorridoP (){
         for (int i=this.PI; i<4000; i++){
             for (int j=0; j<this.PEP.size(); j++){
-                if (this.PEP.get(j).getPista() == i){
+                if (this.PEPv[i]== 1){
                     try {
                         //Se calcula el tiempo que le tomo encontrarla 
                         this.TRP = 1000/(i-this.PI);
@@ -90,6 +85,8 @@ public class FSCAN extends Metodos{
                         this.TTT = this.TTT + this.PEP.get(j).getTT();
                         //Cambio de lista
                         this.PS.add(this.PEP.remove(j)); 
+                        this.PEPv[i] = 0;
+                        this.PSv[NPS] = 1;  
                         //Aumentar el contador de peticiones 
                         this.NPS ++;
                         //Aumentar el numero de pistas recorridas
@@ -111,7 +108,7 @@ public class FSCAN extends Metodos{
     public void recorridoN (){
         for (int i=this.PI; i>-1; i--){
             for (int j=0; j<this.PEP.size(); j++){
-                if (this.PEP.get(j).getPista() == i){
+                if (this.PEPv[i]== 1){
                     try {
                         //Se calcula el tiempo que le tomo encontrarla 
                         this.TRP = 1000/(this.PI-i);
@@ -121,6 +118,8 @@ public class FSCAN extends Metodos{
                         this.TTT = this.TTT + this.PEP.get(j).getTT();
                         //Cambio de lista
                         this.PS.add(this.PEP.remove(j)); 
+                        this.PEPv[i] = 0;
+                        this.PSv[NPS] = 1; 
                         //Aumentar el contador de peticiones 
                         this.NPS ++;
                         //Aumentar el numero de pistas recorridas
@@ -145,13 +144,16 @@ public class FSCAN extends Metodos{
         //Declaramos un arreglo auxiliar para poder pasar los objetos de la lista PNS a la PEP con un for
         Peticion[] lista = new Peticion[this.PNS.size()];
         lista = this.PNS.toArray(lista);
+        this.PEPv = this.PNSv;
         //Vaciamos PNS para que se enlisten nuevas peticiones 
         this.PNS.clear();
+        for (int i = 0; i < PNSv.length; i++){
+            PNSv[i] = 0;
+        }
         //Iteramos sobre el arreglo para vaciar su contenido en PEP 
         for (int i=0; i<lista.length; i++){
             this.PEP.add(lista[i]);
-        }
-        
+        }     
     }
     //---------------------------------------------------- Setters and Getters ------------------------------//
 
@@ -162,5 +164,10 @@ public class FSCAN extends Metodos{
     public void setPEP(List<Peticion> PEP) {
         this.PEP = PEP;
     }
+
+    public int[] getPEPv() {
+        return PEPv;
+    }
+    
     
 }
