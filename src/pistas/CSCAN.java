@@ -15,10 +15,12 @@ import java.util.logging.Logger;
  */
 public class CSCAN extends Metodos{
     private boolean direccion; //Variable que indica la direccion del brazo, TRUE=Derecha FALSE=Izquierda 
+    PistasInterfaz interfaz = new PistasInterfaz(); //ESTO habra que borrarlo??
     
-    public CSCAN(List PNS, int PI, boolean direccion) {
+    public CSCAN(List PNS, int PI, boolean direccion, PistasInterfaz interfaz) {
         super(PNS, PI);
         this.direccion = direccion;
+        this.interfaz = interfaz;
     }
     
     @Override
@@ -44,6 +46,15 @@ public class CSCAN extends Metodos{
                 double TFI = (new Double(System.currentTimeMillis())).doubleValue()/1000;
                 //Se actualiza el tiempo empleado en la simulacion
                 this.TTE = this.TTE + (TFI-TI);
+                // se actualizan los datos en la interfaz
+                interfaz.setPRealizadasFIFO(Integer.toString(this.NPRe));
+                interfaz.setPRecorridasFIFO(Integer.toString(this.NP));
+                interfaz.setPSatisfacerFIFO(Integer.toString(this.NPps));
+                interfaz.setPSatisfechasFIFO(Integer.toString(this.NPS));
+                interfaz.setPromedioRSFIFO(Float.toString(this.PPR)); //promedio de recorridas, e
+                interfaz.setTiempoRecorriendoFIFO(Double.toString(this.TRP));
+                interfaz.setTTransferenciaFIFO(Double.toString(this.TTT));
+                interfaz.setTTotalFIFO(Double.toString(this.TTE));
             } else {
                 synchronized(this){
                     pausa();

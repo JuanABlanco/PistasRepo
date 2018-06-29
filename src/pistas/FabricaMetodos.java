@@ -16,22 +16,22 @@ public class FabricaMetodos {
     private List<Peticion> l = new ArrayList<Peticion>();
     private int PI;
     private boolean direccion;
-
-    public FabricaMetodos() {
-        
+    private PistasInterfaz interfaz = new PistasInterfaz();
+    public FabricaMetodos(PistasInterfaz interfaz) {
+        this.interfaz = interfaz; // ESTO no lo he pasado a los metodos
     }
     
     public Metodos getMetodo(String s){
         if (s.equalsIgnoreCase("FIFO")){
-            return new FIFO(l, PI);
+            return new FIFO(l, PI, interfaz);
         } else if (s.equalsIgnoreCase("SSTF")){
-            return new SSTF(l , PI);
+            return new SSTF(l , PI, interfaz);
         } else if (s.equalsIgnoreCase("SCANL")){
-            return new SCANL(l, PI, direccion);
+            return new SCANL(l, PI, direccion, interfaz);
         } else if (s.equalsIgnoreCase("CSCAN")){
-            return new CSCAN(l, PI, direccion);
+            return new CSCAN(l, PI, direccion, interfaz);
         } else {
-            return new FSCAN(l, PI, direccion);
+            return new FSCAN(l, PI, direccion, interfaz);
         }
     }
 
